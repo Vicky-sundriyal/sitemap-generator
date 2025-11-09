@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # ✅ NEW: Import CORS
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from collections import deque
 
 app = Flask(__name__)
+CORS(app)  # ✅ NEW: Allow requests from your frontend (e.g., deepvikas.com)
 
 @app.route('/')
 def home():
